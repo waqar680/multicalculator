@@ -1,0 +1,161 @@
+<html>
+    <head>
+        <title>GST-TAX</title>
+        <style>
+              *{
+                margin: 0%;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            /* menu start*/
+            .container{
+                width: 700px;
+                height: 600px;
+                background-color: rgb(185, 183, 183);
+                margin: auto;
+            }
+            #item{
+                width: 700px;
+                height: 100px;
+                background-color: black;
+                
+            }
+            #item  a{
+                text-decoration: none;
+                color: black;
+                padding: 15px;
+                width: 30px;
+                height: 20px;
+                background-color: white; 
+                border-radius: 15px;
+            }
+            .item_name{
+                font-weight: bold;
+                margin: 5px;
+            }
+            /* menu close*/
+            .gst_cal{
+                width: 700px;
+                height: 450px;
+            }
+            #form-1{
+                width: 700px;
+                height: 225px;
+                background-color: rgb(168, 185, 185);
+            }
+            #form-2{
+                width: 700px;
+                height: 225px;
+                background-color: rgb(137, 133, 138);
+            }
+            .opratore {
+                width: 200px;
+                height: 30px;
+                font-size: large;
+                background-color: black;
+                color: white;
+            }
+            
+            .text-input{
+                font-weight: bold;
+                font-family:Verdana, Geneva, Tahoma, sans-serif
+            }
+            #result{
+                height: 40px;
+                font-size: large;
+            }
+            #result2{
+                height: 40px;
+                font-size: large;
+            }
+            footer{
+                width: 700px;
+                height: 50px;
+                background-color: black;
+            }
+            footer > h1{
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <!--MENU BAR START-->
+            <div id="item"><br><br>
+                <a href="index.html" class="standard item_name">STANDARD</a>
+                <a href="GST.html" class="gst item_name">GST TAX</a>
+                <a href="sqrft.html" class="sqrft item_name">SQUARE FEET</a>
+                <a href="TEMP.html" class="temp item_name" >TEMPRATURE</a>
+                <a href="#" class="currency item_name">CURRENCY</a>
+            </div>
+            <!--MENU BAR STOP-->
+            <div class="gst_cal">
+                <form name="forms" id="form-1">
+                    <center><p>(CALCULATE PERCENTAGE VALUE )</p>
+                     <label class="text-input"> INITIAL VALUE:-</label><input type="number" id="stndr-value">
+                     <label class="text-input">TAX(IN %):-</label> <input type="number" id="gst-value"><br><br>
+                     <input type="submit" id="calculate" value="CALCULATE" class="opratore"><br>
+                     <input type="submit" id="clear" value="CLEAR" class="opratore"><br><br> 
+                     <label class="text-input">TAX AMOUNT:-</label><input type="text" id="gst-amount"><br><br>
+                     <label class="text-input">TOTAL AMOUNT:-</label><input type="text" id="result" ></center>
+                </form>
+                <form name="forms" id="form-2">
+                    <center><p>(CALCULATE PERCENTAGE)</p>
+                        <label class="text-input">INITIAL VALUE:-</label><input type="number" id="stndr-value-2">
+                        <label class="text-input">SECOND VALUE:-</label> <input type="number" id="gst-value-2"><br><br>
+                        <input type="submit" id="calculate-2" value="CALCULATE" class="opratore"><br>
+                        <input type="submit" id="clear-2" value="CLEAR" class="opratore"><br><br> 
+                        <!--<label class="text-input">GST AMOUNT:-</label><input type="text" id="gst-amount">--><br>
+                        <label class="text-input">RESULT (IN %):-</label><input type="text" id="result2" >%</center>
+                </form>
+            </div>
+            <CENTER>
+            <footer>
+                <h1 ><u>MULTI  PURPOSE  CALCULATORE</u></h1>
+            </footer></CENTER>
+        </div>
+        <script>
+        const result = document.querySelector('#calculate');
+        result.addEventListener('click',function (final){
+            final.preventDefault()
+                const num1 = parseInt(document.querySelector('#stndr-value').value);
+                const num2 = parseInt( document.querySelector('#gst-value').value);
+               // const sum  = document.querySelectorAll('#result').value = parseInt(num1)+parseInt(num2);
+                 const tax = document.querySelector('#gst-amount').value = parseInt(num1)/100*parseInt(num2);
+                 document.querySelector('#result').value = parseInt(num1)+tax;
+        });
+           const result2 = document.querySelector('#calculate-2');
+           result2.addEventListener('click',function(final2){
+               final2.preventDefault()
+               const value1 = parseInt(document.querySelector('#stndr-value-2').value);
+               const value2 = parseInt(document.querySelector('#gst-value-2').value);
+               document.querySelector('#result2').value = parseInt(value2)*100/parseInt(value1);
+           });
+
+           const clear = document.querySelector('#clear');
+           clear.addEventListener('click',function(finish){
+               finish.preventDefault()
+               document.querySelector('#stndr-value').value = '';
+               document.querySelector('#gst-value').value = '';
+               document.querySelector('#gst-amount').value = '';
+               document.querySelector('#result').value = '';
+           });
+           const clear2 = document.querySelector('#clear-2');
+           clear2.addEventListener('click',function(finish2){
+               finish2.preventDefault()
+               document.querySelector('#stndr-value-2').value = '';
+               document.querySelector('#gst-value-2').value = '';
+              // document.querySelector('#gst-amount').value = '';
+               document.querySelector('#result2').value = '';
+           })
+        </script>
+
+
+
+<!--<h3>RESULT </h3><input type="text" id="result" ><br><br>
+                     (VALUE USING INPUT TAX IN % )
+                     <h3>INITIAL VALUE:-<input type="number" id="stndr-value"></h3>
+                     <h3>GST(IN %):- <input type="number" id="gst-value"></h3>
+                     <input type="submit" id="calculate" value="calculate"><br><br>-->
+    </body>
+</html>

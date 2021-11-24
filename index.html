@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <title>CALCULATOR</title>
+        <style>
+            *{
+                margin: 0%;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            /* menu start*/
+            .container{
+                width: 700px;
+                height: 600px;
+                background-color: rgb(185, 183, 183);
+                margin: auto;
+            }
+            #item{
+                width: 700px;
+                height: 100px;
+                background-color: black;
+                
+            }
+            #item  a{
+                text-decoration: none;
+                color: black;
+                padding: 15px;
+                width: 30px;
+                height: 20px;
+                background-color: white; 
+                border-radius: 15px;
+            }
+            .item_name{
+                font-weight: bold;
+                margin: 5px;
+            }
+            /* menu close*/
+
+            #standard_cal{
+                width: 700px;
+                height: 450px;
+            }
+            #display{
+                width: 700px;
+                height: 80px;
+                font-size: xx-large;
+                text-align: right;
+            }
+            .input{
+                width: 170px;
+                height: 74px;
+            }
+            .clear{
+                width: 695px;
+                height: 70px;
+            }
+            .input:hover{
+                font-size: large;
+            }
+            footer{
+                width: 700px;
+                height: 50px;
+                background-color: black;
+            }
+            footer > h1{
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <!--MENU BAR START-->
+            <div id="item"><br><br>
+                <a href="index.html" class="standard item_name">STANDARD</a>
+                <a href="GST.html" class="gst item_name">GST TAX</a>
+                <a href="sqrft.html" class="sqrft item_name">SQUARE FEET</a>
+                <a href="TEMP.html" class="temp item_name">TEMPRATURE</a>
+                <a href="#" class="currency item_name">CURRENCY</a>
+            </div>
+            <!--MENU BAR STOP-->
+            <!--STANDARD CALCULATOR START-->
+            <center>
+            <form name="forms" id="standard_cal">
+                <input type="text" name="result" id="display"><br>
+                <input type="button" value="7" class="number input" onclick="forms.result.value += '7'">
+                <input type="button" value="8" class="number input" onclick="forms.result.value += '8'">
+                <input type="button" value="9" class="number input" onclick="forms.result.value += '9'">
+                <input type="button" value="+" class="operator input" onclick="forms.result.value += '+'"><br>
+                <input type="button" value="4" class="number input" onclick="forms.result.value += '4'">
+                <input type="button" value="5" class="number input" onclick="forms.result.value += '5'">
+                <input type="button" value="6" class="number input" onclick="forms.result.value += '6'">
+                <input type="button" value="*" class="operator input" onclick="forms.result.value += '*'"><br>
+                <input type="button" value="1" class="number input" onclick="forms.result.value += '1'">
+                <input type="button" value="2" class="number input" onclick="forms.result.value += '2'">
+                <input type="button" value="3" class="number input" onclick="forms.result.value += '3'">
+                <input type="button" value="-" class="operator input" onclick="forms.result.value += '-'"><br>
+                <input type="button" value="." class="operator input" onclick="forms.result.value += '.'">
+                <input type="button" value="0" class="number input" onclick="forms.result.value += '0'">
+                <input type="button" value="/" class="operator input" onclick="forms.result.value += '/'">
+                <input type="button" value="=" class="equal input" onclick="forms.result.value = eval(forms.result.value)"><br>
+                <input type="button" value="CLEAR ALL" class="clear" onclick="forms.result.value = ' '">
+
+            </form>
+            <!--STANDARD CALCULATOR START-->
+            <footer>
+                <h1 ><u>MULTI  PURPOSE  CALCULATORE</u></h1>
+            </footer></center>
+        </div>
+    </body>
+</html>

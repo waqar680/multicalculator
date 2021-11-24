@@ -1,0 +1,156 @@
+<html>
+    <head>
+        <title>TEMPRATURE CONVERTORE</title>
+        <style>
+              *{
+                margin: 0%;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            /* menu start*/
+            .container{
+                width: 700px;
+                height: 600px;
+                background-color: rgb(185, 183, 183);
+                margin: auto;
+            }
+            #item{
+                width: 700px;
+                height: 100px;
+                background-color: black;
+                
+            }
+            #item  a{
+                text-decoration: none;
+                color: black;
+                padding: 15px;
+                width: 30px;
+                height: 20px;
+                background-color: white; 
+                border-radius: 15px;
+            }
+            .item_name{
+                font-weight: bold;
+                margin: 5px;
+            }
+            /* menu close*/
+            .temp_check{
+                width: 700px;
+                height: 450px;
+            }
+            #clear{
+                width:300px;
+                color: white;
+                background-color: black;
+            }
+            .left{
+                margin-left: 50px;
+            }
+            footer{
+                width: 700px;
+                height: 50px;
+                background-color: black;
+            }
+            footer > h1{
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <!--MENU BAR START-->
+            <div id="item"><br><br>
+                <a href="index.html" class="standard item_name">STANDARD</a>
+                <a href="GST.html" class="gst item_name">GST TAX</a>
+                <a href="sqrft.html" class="sqrft item_name">SQUARE FEET</a>
+                <a href="TEMP.html" class="temp item_name" >TEMPRATURE</a>
+                <a href="#" class="currency item_name">CURRENCY</a>
+            </div>
+            <!--MENU BAR CLOSE-->
+            <!--TEMPRATURE CONVERTORE START-->
+            <div class="temp_check">
+                <center>
+                <h3>CELSIUS TO FAHRENHEIT</h3>  <!--C  TO F-->
+                <input type="number" id="cf" >'C 
+                <input type="text" class="left" id="cf-2">F<br><br>
+                <h3>CELSIUS TO KELVIN</h3>   <!--C  TO K-->
+                <input type="number" id="ck">'C 
+                <input type="text" class="left" id="ck-2">K<br><br><br><br>
+                <h3>FAHRENHEIT TO CELSIUS</h3>  <!--F  TO C-->
+                <input type="number" id="fc">F 
+                <input type="text" class="left" id="fc-2">C<br><br>
+                <h3>FAHRENHEIT TO KELVIN</h3>  <!--F  TO K-->
+                <input type="number" id="fk">F
+                <input type="text" class="left" id="fk-2">K<br><br><br><br>
+                <h3>KELVIN TO FAHRENHEIT</h3>  <!--K  TO F-->
+                <input type="number" id="kf">K 
+                <input type="text" class="left" id="kf-2">F<br><br>
+                <h3>KELVIN TO CELSIUS</h3>  <!--K  TO C-->
+                <input type="number" id="kc" >K 
+                <input type="text" class="left" id="kc-2">C<br><br>
+                <input type="submit" value="CLEAR ALL" id="clear">
+                </center>
+            </div>
+            <!--TEMPRATURE CONVERTORE CLOSE-->
+            <center>
+            <footer>
+                <h1 ><u>MULTI  PURPOSE  CALCULATORE</u></h1>
+            </footer></center>
+        </div>
+        <script>
+            //CELSIUS TO FAHRENHEIT
+            document.getElementById("cf").addEventListener("keyup",function(){
+                const cf = document.getElementById("cf").value;
+                const result = parseFloat((cf*1.8)+32);
+                document.getElementById("cf-2").value = parseFloat(result);
+            });     
+            //CELSIUS TO KELVIN
+            document.getElementById("ck").addEventListener("keyup",function(){
+                const kelvin = document.getElementById("ck").value;
+                const result = parseFloat(kelvin) + 273.15;
+                document.getElementById("ck-2").value = parseFloat(result);
+            });
+            //FAHRENHIET TO CELSIUS
+            document.getElementById("fc").addEventListener("keyup",function(){
+                const kelvin = document.getElementById("fc").value;
+                const result = parseFloat((kelvin-32)/1.8);
+                document.getElementById("fc-2").value = parseFloat(result);
+            });
+            //FAHRENHIET TO KELVIN 
+            document.getElementById("fk").addEventListener("keyup",function(){
+                const fer = document.getElementById("fk").value;
+                const result = parseFloat(((fer-32)/1.8)+273.15);
+                document.getElementById("fk-2").value = parseFloat(result);
+            });
+            //KELVIN TO FAHRENHIET 
+            document.getElementById("kf").addEventListener("keyup",function(){
+                const kelvin = document.getElementById("kf").value;
+                const result = parseFloat(((kelvin-273.15)*1.8)+32);
+                document.getElementById("kf-2").value = parseFloat(result);
+            });
+            //KELVIN TO CELSIUS
+            document.getElementById("kc").addEventListener("keyup",function(){
+                const kelvin = document.getElementById("kc").value;
+                const result = parseFloat(kelvin)-273.15;
+                document.getElementById("kc-2").value = parseFloat(result);
+            });
+            //clear all
+            document.querySelector('#clear').addEventListener('click',function(clear){
+                clear.preventDefault()
+                document.getElementById("cf").value = '';
+                document.getElementById("cf-2").value = '';
+                document.getElementById("ck").value = '';
+                document.getElementById("ck-2").value = '';
+                document.getElementById("fc").value = '';
+                document.getElementById("fc-2").value = '';
+                document.getElementById("fk").value = '';
+                document.getElementById("fk-2").value = '';
+                document.getElementById("kf").value = '';
+                document.getElementById("kf-2").value = '';
+                document.getElementById("kc").value = '';
+                document.getElementById("kc-2").value = '';
+            });
+            
+        </script>
+    </body>
+</html>

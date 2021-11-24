@@ -1,0 +1,161 @@
+<html>
+    <head>
+        <style>
+              *{
+                margin: 0%;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            /* menu start*/
+            .container{
+                width: 700px;
+                height: 600px;
+                background-color: rgb(185, 183, 183);
+                margin: auto;
+            }
+            #item{
+                width: 700px;
+                height: 100px;
+                background-color: black;
+                
+            }
+            #item  a{
+                text-decoration: none;
+                color: black;
+                padding: 15px;
+                width: 30px;
+                height: 20px;
+                background-color: white; 
+                border-radius: 15px;
+            }
+            .item_name{
+                font-weight: bold;
+                margin: 5px;
+            }
+            /* menu close*/
+            .inch{
+                width: 700px;
+                height: 225px;
+                background:linear-gradient(rgb(0, 119, 255),rgb(0, 204, 255))
+            }
+            .feet{
+                width: 700px;
+                height: 225px;
+                background:linear-gradient(rgb(162, 0, 255),rgb(255, 0, 242))
+            }
+            .opratore{
+                width: 200px;
+                height: 30px;
+                background-color: black;
+                color: white;
+                font-size: large;
+            }
+            #result{
+                width: 250px;
+                height: 40px;
+            }
+            #result-2{
+                width: 250px;
+                height: 40px;
+            }
+            .ht_text{
+                margin-left: 50px;
+            }
+            #text{
+                font-size: large;
+                font-weight: bold;
+            }
+            footer{
+                width: 700px;
+                height: 50px;
+                background-color: black;
+            }
+            footer > h1{
+                color: white;
+            }
+
+        </style>
+    </head>
+    <body>
+        
+        <div class="container">
+            <!--MENU BAR START-->
+            <div id="item"><br><br>
+                <a href="index.html" class="standard item_name">STANDARD</a>
+                <a href="GST.html" class="gst item_name">GST TAX</a>
+                <a href="sqrft.html" class="sqrft item_name">SQUARE FEET</a>
+                <a href="TEMP.html" class="temp item_name" >TEMPRATURE</a>
+                <a href="#" class="currency item_name">CURRENCY</a>
+            </div>
+            <!--MENU BAR STOP-->
+            <!--calculate sqrft in inch start-->
+            <div class="inch">
+                <center>
+                <h1><u>CALCULATE SQUARE FEET IN INCH</u></h1>
+                <label id="text">WIDTH:-</label><input type="number" id="width">
+                <label class="ht_text" id="text">HEIGHT:-</label><input type="number" id="height"><br>
+                <label id="text">QUANTITY:-</label><input type="number" id="qnty"><br><br>
+                <input type="submit" value="CALCULATE" id="calculate" class="opratore"><br>
+                <input type="submit" value="CLEAR" id="clear" class="opratore"><br><br>
+                <label id="text">SQR.FT :-</label><input type="text" id="result">
+                </center>
+            </div>
+            <!--calculate sqrft in inch start-->
+            <!--calculate sqrft in feet close-->
+            <div class="feet">
+                <center>
+                <h1><u>CALCULATE SQUARE FEET IN FEET</u></h1>
+                <label id="text">WIDTH:-</label><input type="number" id="width-2">
+                <label class="ht_text" id="text">HEIGHT:-</label><input type="number" id="height-2"><br>
+                <label id="text">QUANTITY:-</label><input type="number" id="qnty-2"><br><br>
+                <input type="submit" value="CALCULATE" id="calculate-2" class="opratore"><br>
+                <input type="submit" value="CLEAR" id="clear-2" class="opratore"><br><br>
+                <label id="text">SQR.FT :-</label><input type="text" id="result-2">
+                </center>
+               
+            </div>
+            <!--calculate sqrft in inch close-->
+            <CENTER>
+                <footer>
+                    <h1 ><u>MULTI  PURPOSE  CALCULATORE</u></h1>
+                </footer></CENTER>
+            <script>
+                //CALCULATE IN INCH SQRFT START
+                const calculate = document.querySelector('#calculate')
+                calculate.addEventListener('click',function(final){
+                    final.preventDefault()
+                    const width = document.querySelector('#width').value;
+                    const height = document.querySelector('#height').value;
+                    const sqrft = parseInt(width)*parseInt(height)/144;
+                    const qunatity = document.querySelector('#qnty').value;
+                    document.querySelector('#result').value = parseInt(sqrft)*parseInt(qunatity);
+                });
+                document.querySelector('#clear').addEventListener('click',function(clear){
+                    clear.preventDefault()
+                    document.querySelector('#width').value = '';
+                    document.querySelector('#height').value = '';
+                    document.querySelector('#qnty').value = '';
+                    document.querySelector('#result').value = '';
+                });
+                //CALCULATE IN INCH SQRFT CLOSE
+                //CALCULATE IN FEET SQRFT START
+                const calculate2 = document.querySelector('#calculate-2');
+                calculate2.addEventListener('click',function(final2){
+                    final2.preventDefault()
+                    const width2 = document.querySelector('#width-2').value;
+                    const height2 = document.querySelector('#height-2').value;
+                    const  sqrft2 = parseInt(width2)*parseInt(height2);
+                    const qunatity2 = document.querySelector('#qnty-2').value;
+                    document.querySelector('#result-2').value = sqrft2*qunatity2;
+                });
+                document.querySelector('#clear-2').addEventListener('click',function(clear){
+                    clear.preventDefault()
+                    document.querySelector('#width-2').value = '';
+                    document.querySelector('#height-2').value = '';
+                    document.querySelector('#qnty-2').value = '';
+                    document.querySelector('#result-2').value = '';
+                });
+            </script>
+        </div>
+    </body>
+</html>
